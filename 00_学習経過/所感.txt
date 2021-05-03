@@ -11,3 +11,7 @@
 　https://portal.icda.or.jp/icd/icd/download
 　https://home.jeita.or.jp/page_file/20170720114632_cjuyagLMo5.pdf
 　
+
+　ドメインモデル作成のためにシステムの要件が必要になるので、企画段階で該当する作業を特定し実施する。
+　『ユースケース駆動開発実践ガイド 2章11ページ』
+　
