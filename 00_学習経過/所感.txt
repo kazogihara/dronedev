@@ -11,3 +11,4 @@
 　https://portal.icda.or.jp/icd/icd/download
 　https://home.jeita.or.jp/page_file/20170720114632_cjuyagLMo5.pdf
 　
+ドキュメントのトレーサビリティ確保の手法について学ぶ必要があるかもしれない。

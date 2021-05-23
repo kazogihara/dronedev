@@ -1,0 +1,64 @@
+openapi: "3.0.3"
+
+info:
+  title: "Fleet Manager"
+  description: |
+    - Manage drones.
+  version: "1.0.0"
+  
+servers: 
+  - url: "http://localhost:{port}/{version}"
+    description: "Development Environment"
+    variables:
+      port:
+        description: "Service's port"
+        default: "80"
+      version:
+        description: "API version"
+        enum: ["v1","v2"]
+        default: "v1" 
+tags: []
+
+paths: 
+  "/drones/{droneId}/status":
+    get:
+      summary: "Get drones current status."
+      description: "Get current status."
+      deprecated: false
+      parameters:
+        - name: droneId
+          in: path
+          required: true
+          schema: {type: string}
+          example: "1234"
+      responses:
+        "200":
+          description: "Success operation"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  droneId: {type: string}
+                  unit_type: {type: string}
+                  altitude: {type: integer}
+        "404":
+          description: "Resource not found."
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  code: {type: string}
+                  type: {type: string}
+                  message: {type: string}
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field: {type: string}
+                        code: {type: string}
+                
+          
+security: []
