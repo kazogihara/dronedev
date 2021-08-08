@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sitl-deployment
+  name: sitl-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sitl
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sitl
+    spec:
+      containers:
+      - image: temmiehoihoi/sitl_image
+        name: sitl-image
+        resources: {}
+        ports:
+        - containerPort: 5760
+        command: ["sim_vehicle.py", "-N","-v","ArduPlane","--no-mavproxy"]
+
+status: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sitl-service
+spec:
+  type: NodePort
+  ports:
+    - name: http-port
+      protocol: "TCP"
+      port: 5760
+      targetPort: 5760
+      nodePort: 30080
+  selector:
+      app: sitl
+
