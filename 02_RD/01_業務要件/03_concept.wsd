@@ -1,0 +1,15 @@
+@startuml
+ドローン -- 登録
+class ドローン{
+    id
+    name
+    getId()
+    getName()
+}
+class 登録{
+    create()
+    delete()
+    update()
+    search()
+}
+@enduml
