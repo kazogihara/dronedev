@@ -1,7 +1,0 @@
-version: '3'
-services:
-  sitl-image:
-    image: temmiehoihoi/sitl_image
-    command: sim_vehicle.py -N -v ArduCopter --no-mavproxy
-    ports:
-      - "5760:5760"

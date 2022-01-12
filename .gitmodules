@@ -1,3 +1,6 @@
 [submodule "03_M/01_Sitl/ardupilot-sitl-docker"]
 	path = 03_M/01_Sitl/ardupilot-sitl-docker
 	url = git@github.com:kazogihara/ardupilot-sitl-docker
+[submodule "03_M/05_application/dronekit1"]
+	path = 03_M/05_application/dronekit1
+	url = https://github.com/kazogihara/dronekit1.git
