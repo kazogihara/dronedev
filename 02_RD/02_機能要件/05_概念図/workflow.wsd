@@ -1,0 +1,17 @@
+@startuml
+|user|
+start
+:予約申し込み;
+|system|
+if (申込数 >= 稼働数)
+|user|
+:予約失敗確認;
+end
+else 
+|system|
+:予約;
+|user|
+:予約完了確認;
+end
+
+@enduml

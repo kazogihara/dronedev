@@ -30,7 +30,7 @@ public class Drones {
 			drones.add(drone);
 		}
 	}
-
+	
 	public void getEmpty() {
 		Iterator<Drone> drone_iterator = drones.iterator();
 		while (drone_iterator.hasNext()) {

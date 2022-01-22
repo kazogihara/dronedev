@@ -1,0 +1,26 @@
+@startuml
+UserAccount -- Reserve
+Reserve -- DroneList
+DroneList o-- Drone
+DroneRepository -- Drone
+ReserveRepository -- Reserve
+
+class Drone{
+    getEmpty()
+}
+class DroneList{
+    getEmpty()
+}
+class Reserve{
+    createReservation()
+}
+class UserAccount{
+    isAccountExists()
+}
+class ReserveRepository{
+    getEmpty()
+}
+class DroneRepository{
+    createReservation()
+}
+@enduml

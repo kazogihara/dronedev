@@ -1,0 +1,31 @@
+' ### ドローン予約
+' #### 基本コース：
+' ユーザーはリクエストボディに機体数とユーザーIDを入れ、予約urlに対してリクエストを投げる。システムはドローンの空きが存在すれば予約を行い、成功ステータスを返却する。
+' ドローンの空きが存在しなければ失敗ステータス(機体に空きがない)を返却する。
+' #### 代替コース：
+' ユーザーIDが存在しない：失敗ステータス(ユーザーが存在しない)を返却する
+
+
+@startuml
+actor User
+boundary Terminal
+control MainController
+control ReserveDronesService
+entity UserAccount
+entity Drone
+entity Reserve
+entity UserAccountRepository
+entity DroneRepository
+entity ReserveRepository
+
+User -> Terminal
+Terminal -> MainController : API
+MainController -> ReserveDronesService : createDronesReserve(Drones,Reserve,UserAccount)
+ReserveDronesService -> UserAccount : isAccountExists()
+UserAccount -> UserAccountRepository : isAccountExists(id)
+ReserveDronesService -> Drone : getEmpty()
+Drone -> DroneRepository : getEmpty(Drones.getLength)
+ReserveDronesService -> Reserve : createReserve(Drones,UserAccount)
+Reserve -> ReserveRepository : createReserve(Drones,UserAccount.id)
+ReserveDronesService --> Terminal : アカウントが存在しなければTerminalにエラーコード(403)を返却
+@enduml

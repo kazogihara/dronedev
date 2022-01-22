@@ -91,4 +91,16 @@ public class MainController {
 		reserve_service.createReserve();
 		return "0";
 	}
+	
+	@GetMapping("/reservelist")
+	public List<Map<String, Object>> reserveList(@RequestBody String req_param) {
+		List<Map<String,Object>> result;
+		System.out.println(req_param);
+		JSONObject jObject = new JSONObject(req_param);
+		int user_account_id=jObject.getInt("user_account");
+		user_account.setId(user_account_id);
+		reserve_service.setUserAccount(user_account);
+		result = reserve_service.getReserveList();
+		return result;
+	}
 }

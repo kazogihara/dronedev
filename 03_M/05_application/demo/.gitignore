@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### mavproxy ###
+mav.tlog
+mav.tlog.raw

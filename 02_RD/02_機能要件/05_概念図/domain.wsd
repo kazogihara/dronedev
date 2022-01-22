@@ -1,0 +1,10 @@
+@startuml
+' userAccount --o reserve
+' reserve o-- drone
+' reserveHistory o-- reserve
+ユーザアカウント -- 予約
+予約 o- ドローン
+' class reserve{}
+class ドローン{}
+class 予約{}
+@enduml

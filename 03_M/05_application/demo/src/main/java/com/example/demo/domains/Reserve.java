@@ -1,6 +1,7 @@
 package com.example.demo.domains;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,5 +28,9 @@ public class Reserve {
 	public void createReserve() {
 		List ids = drones.getId();
 		ids.forEach(id -> reserve_repository.createReserve((int)id, user_account.getId()));
+	}
+	
+	public  List<Map<String, Object>> getReserveList() {
+		return reserve_repository.getReserveList(user_account.getId());
 	}
 }
